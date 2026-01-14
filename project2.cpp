@@ -17,7 +17,7 @@ int main() {
     char winner = ' ';
 
     for (int i = 0; i < 9; i++) {
-        //print game board
+        
         cout << "   |   |   " << endl;
         cout << " " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << endl;
         cout << "___|___|___" << endl;
@@ -32,7 +32,7 @@ int main() {
             break;
         }
 
-        //get player input
+        
         cout << "Current Player is " << currentPlayer << endl;
         while (true) {
             cout << "Enter r c from 0-2 for row and column: ";
@@ -46,21 +46,21 @@ int main() {
             else {
                 break;
             }
-            //reset values
+            
             r = -1;
             c = -1;
-            cin.clear(); //clear error flags
-            cin.ignore(10000, '\n'); //discard values 
-            //(skips to the next new line \n up to 10000 char) already in input stream
+            cin.clear(); 
+            cin.ignore(10000, '\n'); 
+            
 
-        }
+        };
 
         board[r][c] = currentPlayer;
         currentPlayer = (currentPlayer == playerX) ? playerO : playerX;
 
-        //check winners
+        
 
-        //rows - horizontal
+        
         for (int r = 0; r < 3; r++) {
             if (board[r][0] != ' ' && board[r][0] == board[r][1] && board[r][1] == board[r][2]) {
                 winner = board[r][0];
@@ -68,7 +68,7 @@ int main() {
             }
         }
 
-        //columns - vertical
+        
         for (int c = 0; c < 3; c++) {
             if (board[0][c] != ' ' && board[0][c] == board[1][c] && board[1][c] == board[2][c]) {
                 winner = board[0][c];
@@ -76,7 +76,7 @@ int main() {
             }
         }
 
-        //diagonal
+        
         if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
             winner = board[0][0];
         }
@@ -91,4 +91,5 @@ int main() {
     else {
         cout << "Tie!" << endl;
     }
+
 }
